@@ -1,0 +1,8 @@
+/data/test_files.txt
+/data/train_files.txt
+/dump/
+/log/
+/__pycache__/
+/models/__pycache__/
+/tf_ops/__pycache__/
+/utils/__pycache__/

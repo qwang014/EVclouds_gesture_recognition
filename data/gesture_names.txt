@@ -1,0 +1,11 @@
+hand_clapping
+right_hand_wave
+left_hand_wave
+right_hand_clockwise 
+right_hand_counter_clockwise 
+left_hand_clockwise 
+left_hand_counter_clockwise 
+forearm_roll_forward
+air_drums
+air_guitar
+random gestures
