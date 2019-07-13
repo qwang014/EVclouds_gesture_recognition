@@ -22,7 +22,7 @@ import tf_util
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=int, default=1, help='GPU to use [default: GPU 0]')
-parser.add_argument('--model', default='pointnet_cls_basic', help='Model name [default: pointnet_cls]')
+parser.add_argument('--model', default='pointnet2_cls_ssg', help='Model name [default: pointnet_cls]')
 parser.add_argument('--log_dir', default='log', help='Log dir [default: log]')
 
 parser.add_argument('--num_classes', type=int, default=10, help='10 getures + 1 random')
@@ -185,7 +185,7 @@ def train():
              
             
             train_one_epoch(sess, ops, train_writer)
-            eval_one_epoch_1(sess, ops, test_writer)
+            eval_one_epoch(sess, ops, test_writer)
             if epoch % 10 == 0:
                 save_path = saver.save(sess, os.path.join(LOG_DIR, "model.ckpt"))
                 log_string("Model saved in file: %s" % save_path)
@@ -249,7 +249,7 @@ def train_one_epoch(sess, ops, train_writer):
         log_string('accuracy: %f' % (total_correct / float(total_seen)))
 
         
-def eval_one_epoch_1(sess, ops, test_writer):
+def eval_one_epoch(sess, ops, test_writer):
     """ ops: dict mapping from string to tf ops """
     is_training = False
     total_correct = 0
